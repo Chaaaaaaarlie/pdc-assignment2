@@ -1,6 +1,11 @@
 package Controllers;
 
+import Commands.Game;
+import Commands.Main;
+import Commands.Question;
+import Commands.User;
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +22,11 @@ public class MainMenuController {
     
     @FXML
     public void playButtonAction(ActionEvent event) throws IOException {
+        // Set up questions by retrieving questions from txt file
+        Main menu = new Main();
+        List<Question> questions = menu.getQuestions();
+        Game game = new Game(questions, new User("Test Name", "Test Score"));
+        
         Parent layout = FXMLLoader.load(getClass().getResource("/FXML/GameView.fxml"));
         Scene mainMenuScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
