@@ -1,6 +1,11 @@
 package Controllers;
 
+import Commands.Game;
+import Commands.Main;
+import Commands.Question;
+import Commands.User;
 import java.io.IOException;
+import java.util.List;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +21,8 @@ public class MainMenuController {
     public Button exitButton;
     
     @FXML
-    public void playButtonAction(ActionEvent event) throws IOException {
+    public void playButtonAction(ActionEvent event) throws IOException {    
+        // Change scenes to GameView
         Parent layout = FXMLLoader.load(getClass().getResource("/FXML/GameView.fxml"));
         Scene mainMenuScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -26,6 +32,7 @@ public class MainMenuController {
     
     @FXML
     public void scoreButtonAction(ActionEvent event) throws IOException {
+        // Change scenes to ScoreView
         Parent layout = FXMLLoader.load(getClass().getResource("/FXML/ScoreView.fxml"));
         Scene mainMenuScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();

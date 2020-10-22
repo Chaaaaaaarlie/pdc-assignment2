@@ -33,6 +33,10 @@ public class StartController {
         }    
     }  
     
+    /**
+     * PUT THIS METHOD IN OWN CLASS
+     * @return 
+     */
     private boolean validName() {
         boolean valid = false;
         String name = nameField.getText();
