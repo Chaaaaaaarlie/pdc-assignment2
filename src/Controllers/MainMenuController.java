@@ -21,12 +21,8 @@ public class MainMenuController {
     public Button exitButton;
     
     @FXML
-    public void playButtonAction(ActionEvent event) throws IOException {
-        // Set up questions by retrieving questions from txt file
-        Main menu = new Main();
-        List<Question> questions = menu.getQuestions();
-        Game game = new Game(questions, new User("Test Name", "Test Score"));
-        
+    public void playButtonAction(ActionEvent event) throws IOException {    
+        // Change scenes to GameView
         Parent layout = FXMLLoader.load(getClass().getResource("/FXML/GameView.fxml"));
         Scene mainMenuScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -36,6 +32,7 @@ public class MainMenuController {
     
     @FXML
     public void scoreButtonAction(ActionEvent event) throws IOException {
+        // Change scenes to ScoreView
         Parent layout = FXMLLoader.load(getClass().getResource("/FXML/ScoreView.fxml"));
         Scene mainMenuScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
