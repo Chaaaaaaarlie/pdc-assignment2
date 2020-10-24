@@ -2,7 +2,7 @@ package Commands;
 
 import java.util.Random;
 
-public class FiftyFifty extends LifeLine {
+public class FiftyFifty extends LifeLineAbstract {
     private boolean shown = false;
     private Question q;
     private String letter;
@@ -41,10 +41,13 @@ public class FiftyFifty extends LifeLine {
         
         active = false;
     }
-
+    
+    /**
+     * Getter for
+     */
     @Override
-    public boolean isActive() {
-        return active;
+    public String getAnswer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**
@@ -87,5 +90,10 @@ public class FiftyFifty extends LifeLine {
      */
     public String[] getFiftyFifty() {
         return chosenOptions;
+    }
+
+    @Override
+    public String toString() {
+        return "Fifty Fifty";
     }
 }

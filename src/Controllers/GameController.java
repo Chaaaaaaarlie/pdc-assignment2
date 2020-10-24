@@ -1,12 +1,15 @@
 package Controllers;
 
+import Commands.AskTheAudience;
+import Commands.FiftyFifty;
 import Commands.Game;
+import Commands.LifeLine;
 import Commands.Main;
+import Commands.PhoneAFriend;
 import Commands.Question;
 import Commands.User;
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GameController implements Initializable {
@@ -49,6 +53,24 @@ public class GameController implements Initializable {
         Main menu = new Main();
         game = new Game(menu.getQuestions(), new User("Test Name", "Test Score"));
         displayQuestion();   
+    }
+    
+    @FXML
+    public void fiftyFiftyButtonAction(ActionEvent event) throws IOException {
+        fiftyFifty.setDisable(true);
+        System.out.println("Fifty Fifty used");
+    }
+    
+    @FXML
+    public void phoneAFriendButtonAction(ActionEvent event) throws IOException {
+        phoneAFriend.setDisable(true);
+        lifelineSetup(new PhoneAFriend());
+    }
+    
+    @FXML
+    public void askTheAudienceButtonAction(ActionEvent event) throws IOException {
+        askTheAudience.setDisable(true);
+        lifelineSetup(new AskTheAudience());
     }
     
     @FXML
@@ -87,5 +109,24 @@ public class GameController implements Initializable {
         optionB.setText(options[1]);
         optionC.setText(options[2]);
         optionD.setText(options[3]);
+    }
+    
+    /**
+     * Set up lifeline view
+     */
+    private void lifelineSetup(LifeLine lifeline) throws IOException {
+         // Get reference to LifelineController
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/LifelineView.fxml"));    
+        Parent layout  = loader.load();
+        LifelineController lifelineController = loader.getController();
+        lifelineController.setLifeline(lifeline);
+        lifelineController.setup();
+        
+        // Change scene to LifelineView in a new window
+        Scene lifelineScene = new Scene(layout);
+        Stage popUpWindow = new Stage();
+        popUpWindow.initModality(Modality.APPLICATION_MODAL);  // Must click pop up first
+        popUpWindow.setScene(lifelineScene);
+        popUpWindow.showAndWait(); 
     }
 }

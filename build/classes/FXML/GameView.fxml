@@ -10,22 +10,22 @@
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GameController">
    <children>
       <ListView fx:id="prizeList" layoutX="916.0" layoutY="71.0" prefHeight="554.0" prefWidth="319.0" style="-fx-font-size: 1.25em;" />
-      <Button fx:id="fiftyFifty" layoutX="48.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" text="Fifty Fifty">
+      <Button fx:id="fiftyFifty" layoutX="48.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" onAction="#fiftyFiftyButtonAction" text="Fifty Fifty">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="phoneAFriend" layoutX="305.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" text="Phone A Friend">
+      <Button fx:id="phoneAFriend" layoutX="305.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" onAction="#phoneAFriendButtonAction" text="Phone A Friend">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="askTheAudience" layoutX="561.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" text="Ask The Audience">
+      <Button fx:id="askTheAudience" layoutX="561.0" layoutY="71.0" minWidth="200.0" mnemonicParsing="false" onAction="#askTheAudienceButtonAction" text="Ask The Audience">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Text fx:id="question" layoutX="48.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question goes here">
+      <Text fx:id="question" layoutX="48.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question goes here">
          <font>
             <Font size="36.0" />
          </font>

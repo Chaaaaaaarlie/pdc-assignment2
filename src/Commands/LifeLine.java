@@ -1,8 +1,6 @@
 package Commands;
 
-abstract class LifeLine {
-    protected boolean active = true;
-    
-    public abstract void use();
-    public abstract boolean isActive();
+public interface LifeLine {
+    public abstract void use();  
+    public abstract String getAnswer();
 }

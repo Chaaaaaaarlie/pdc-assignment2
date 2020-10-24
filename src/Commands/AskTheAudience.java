@@ -2,7 +2,7 @@ package Commands;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class AskTheAudience extends LifeLine {
+public class AskTheAudience extends LifeLineAbstract {
 
     @Override
     public void use() {
@@ -15,9 +15,12 @@ public class AskTheAudience extends LifeLine {
         active = false;
     }
     
+    /**
+     * Getter for
+     */
     @Override
-    public boolean isActive() {
-        return active;
+    public String getAnswer() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /**
@@ -46,5 +49,10 @@ public class AskTheAudience extends LifeLine {
         } 
         
         return votes;
+    }
+    
+    @Override
+    public String toString() {
+        return "Ask The Audience";
     }
 }

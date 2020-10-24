@@ -4,10 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/StartController.java</file>
-            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/ScoreController.java</file>
-            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/MainMenuController.java</file>
             <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/GameController.java</file>
-            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/FXML/GameView.fxml</file>
+            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Commands/Main.java</file>
         </group>
     </open-files>
 </project-private>

@@ -11,8 +11,8 @@ public class Game {
     private int questionIndex;
     private Prize prize;
     private FiftyFifty fiftyFifty;
-    private LifeLine phoneAFriend;
-    private LifeLine askTheAudience;
+    private LifeLineAbstract phoneAFriend;
+    private LifeLineAbstract askTheAudience;
     private User user; 
     private GameController gameController;
     
@@ -79,7 +79,7 @@ public class Game {
     /**
      * Use lifeline
      */
-    private void useLifeLine(LifeLine lifeLine) {
+    private void useLifeLine(LifeLineAbstract lifeLine) {
         lifeLine.use();
     }
 }
