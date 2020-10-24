@@ -18,12 +18,32 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Text layoutX="12.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your friend thinks the answer is:" textAlignment="CENTER" wrappingWidth="576.03515625">
+      <Text fx:id="friendHeader" layoutX="12.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your friend thinks the answer is:" textAlignment="CENTER" visible="false" wrappingWidth="576.03515625">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fx:id="friendsAnswer" layoutX="62.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friend's answer goes here" textAlignment="CENTER" wrappingWidth="477.0">
+      <Text fx:id="friendsAnswer" layoutX="62.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Friend's answer goes here" textAlignment="CENTER" visible="false" wrappingWidth="477.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="aResult" layoutX="136.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="dResult" layoutX="349.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="bResult" layoutX="349.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="cResult" layoutX="136.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
          <font>
             <Font size="36.0" />
          </font>

@@ -3,24 +3,23 @@ package Commands;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class AskTheAudience extends LifeLineAbstract {
-
+    private String audienceAnswer;
+    
     @Override
     public void use() {
         int[] votes = audienceVotes();
-        System.out.println("The audience votes: ");
-        System.out.println("A = " + votes[0] + "%");
-        System.out.println("B = " + votes[1] + "%");
-        System.out.println("C = " + votes[2] + "%");
-        System.out.println("D = " + votes[3] + "%");
-        active = false;
+        audienceAnswer = "A " + votes[0] + "%-" +
+                         "B " + votes[1] + "%-" +
+                         "C " + votes[2] + "%-" +
+                         "D " + votes[3] + "%-";
     }
     
     /**
-     * Getter for
+     * Getter for variable audienceAnswer
      */
     @Override
     public String getAnswer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return audienceAnswer;
     }
     
     /**
