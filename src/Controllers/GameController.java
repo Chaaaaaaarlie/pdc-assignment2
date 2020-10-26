@@ -58,13 +58,16 @@ public class GameController implements Initializable {
     @FXML
     public void fiftyFiftyButtonAction(ActionEvent event) throws IOException {
         fiftyFifty.setDisable(true);
-        System.out.println("Fifty Fifty used");
+        LifeLine fiftyFifty = new FiftyFifty();
+        fiftyFifty.use();
+        enableFiftyFifty(fiftyFifty.getAnswer());    
     }
     
     @FXML
     public void phoneAFriendButtonAction(ActionEvent event) throws IOException {
         phoneAFriend.setDisable(true);
         lifelineSetup(new PhoneAFriend());
+        
     }
     
     @FXML
@@ -128,5 +131,29 @@ public class GameController implements Initializable {
         popUpWindow.initModality(Modality.APPLICATION_MODAL);  // Must click pop up first
         popUpWindow.setScene(lifelineScene);
         popUpWindow.showAndWait(); 
+    }
+    
+    /**
+     * Active Fifty Fifty lifeline by disabling two random options
+     */
+    private void enableFiftyFifty(String s) {
+        String[] optionsToRemove = s.split("-");
+        
+        if (optionsToRemove[0].equals("A") || optionsToRemove[1].equals("A")) {
+            // Disable A
+            optionA.setVisible(false);
+        }      
+        if (optionsToRemove[0].equals("B") || optionsToRemove[1].equals("B")) {
+            // Disable B
+            optionB.setVisible(false);
+        }       
+        if (optionsToRemove[0].equals("C") || optionsToRemove[1].equals("C")) {
+            // Disbale C
+            optionC.setVisible(false);
+        }
+        if (optionsToRemove[0].equals("D") || optionsToRemove[1].equals("D")) {
+            // Disable D
+            optionD.setVisible(false);
+        }
     }
 }

@@ -45,6 +45,11 @@ public class LifelineController {
             bResult.setText(splitResult[1]);
             cResult.setText(splitResult[2]);
             dResult.setText(splitResult[3]);
+            
+            aResult.setVisible(true);
+            bResult.setVisible(true);
+            cResult.setVisible(true);
+            dResult.setVisible(true);
         }
         
     }

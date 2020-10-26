@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/StartController.java</file>
+            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/LifelineController.java</file>
+            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Commands/AskTheAudience.java</file>
+            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Commands/PhoneAFriend.java</file>
             <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Controllers/GameController.java</file>
-            <file>file:/C:/Users/Charlie/Documents/NetBeansProjects/PDC_ass2/src/Commands/Main.java</file>
         </group>
     </open-files>
 </project-private>

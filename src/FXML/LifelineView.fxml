@@ -5,8 +5,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.LifelineController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LifelineController">
    <children>
       <Text fx:id="lifeLineTitle" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Life line" textAlignment="CENTER" wrappingWidth="599.9999913573265">
          <font>
@@ -28,22 +27,22 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="aResult" layoutX="136.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+      <Text fx:id="aResult" layoutX="136.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A: 20%" textAlignment="CENTER" visible="false" wrappingWidth="117.16015625">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="dResult" layoutX="349.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+      <Text fx:id="dResult" layoutX="349.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D: 20%" textAlignment="CENTER" visible="false" wrappingWidth="117.16015625">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="bResult" layoutX="349.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+      <Text fx:id="bResult" layoutX="349.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B: 20%" textAlignment="CENTER" visible="false" wrappingWidth="117.16015625">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="cResult" layoutX="136.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C: 20%" textAlignment="CENTER" wrappingWidth="117.16015625">
+      <Text fx:id="cResult" layoutX="136.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C: 20%" textAlignment="CENTER" visible="false" wrappingWidth="117.16015625">
          <font>
             <Font size="36.0" />
          </font>
