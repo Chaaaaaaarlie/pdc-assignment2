@@ -11,7 +11,6 @@ import Commands.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -95,7 +94,7 @@ public class GameController implements Initializable {
     public void confirmAnswerButton(ActionEvent event) throws IOException {
         switch (game.questionAnswered(((RadioButton)group.getSelectedToggle()).getText())) {
           case 0:   // Incorrect
-              System.out.println("Wrong");
+              gameOverSetup(event);
             break;
           case 1:   // Correct
             RadioButton selectedRadioButton = (RadioButton)group.getSelectedToggle();
@@ -136,7 +135,7 @@ public class GameController implements Initializable {
      * Set up lifeline view
      */
     private void lifelineSetup(LifeLine lifeline) throws IOException {
-         // Get reference to LifelineController
+        // Get reference to LifelineController
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/LifelineView.fxml"));    
         Parent layout  = loader.load();
         LifelineController lifelineController = loader.getController();
@@ -173,5 +172,23 @@ public class GameController implements Initializable {
             // Disable D
             optionD.setVisible(false);
         }
+    }
+    
+    /**
+     * Set up game over view
+     */
+    private void gameOverSetup(ActionEvent event) throws IOException {
+        // Get reference to GameOverController
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/GameOverView.fxml"));    
+        Parent layout  = loader.load();
+        GameOverController gameOverController = loader.getController();
+        gameOverController.setPrizeText("$100");
+        gameOverController.setQuestionNumText(game.getQuestionIndex());
+        
+        // Change scene to GameOverView
+        Scene gameOverScene = new Scene(layout);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(gameOverScene);
+        window.show();    
     }
 }
