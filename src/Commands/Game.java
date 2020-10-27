@@ -36,14 +36,16 @@ public class Game {
         if (answer.equals(questions.get(questionIndex).correctAnswer())) {
             result = 1;
             // Check if correct and last question in list
-            if (questionIndex == questions.size()) {
+            if (questionIndex+1 == questions.size()) {
                 result = 2;
-            }
-            questionIndex++;
+            } else {
+                questionIndex++;
+                System.out.println("QuestionIndex: " + questionIndex);
+            }           
         } else {
             result = 0;
         }
-        
+        System.out.println("Result: " + result);
         return result;
     }
     

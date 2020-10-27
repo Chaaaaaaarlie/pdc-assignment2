@@ -14,9 +14,15 @@ public class GameOverController {
     private Stage gameOverStage;
     
     @FXML
+    private Text gameOverText;
+    @FXML
     private Text prizeText;
     @FXML
     private Text questionNumText;
+    @FXML
+    private Text congratzText;
+    @FXML
+    private Text aMillText;
         
     public void OkButtonAction(ActionEvent event) throws IOException {        
         // Change scenes to MainMenuView
@@ -28,23 +34,30 @@ public class GameOverController {
     }
     
     /**
-     * Get Stage object of this window
+     * Set up game over view
      */
-    public void setStage(Stage stage) {
-        gameOverStage = stage;
+    public void setup(boolean win) {
+        if (win) {
+            congratzText.setVisible(true);
+            aMillText.setVisible(true);
+        } else {
+            gameOverText.setVisible(true);
+            prizeText.setVisible(true);
+            questionNumText.setVisible(true);
+        }
     }
     
     /**
      * Setter for prizeText
      */
     public void setPrizeText(String amount) {
-        prizeText.setText("You won: " + amount);
+        prizeText.setText("You won: " + amount);  
     }
     
     /**
      * Setter for questionNumText
      */
     public void setQuestionNumText(int num) {
-        questionNumText.setText("Questions correct: " + num);
+        questionNumText.setText("Questions correct: " + num); 
     }
 }

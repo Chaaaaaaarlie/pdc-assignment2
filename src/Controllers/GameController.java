@@ -94,7 +94,7 @@ public class GameController implements Initializable {
     public void confirmAnswerButton(ActionEvent event) throws IOException {
         switch (game.questionAnswered(((RadioButton)group.getSelectedToggle()).getText())) {
           case 0:   // Incorrect
-              gameOverSetup(event);
+            gameOverSetup(event);
             break;
           case 1:   // Correct
             RadioButton selectedRadioButton = (RadioButton)group.getSelectedToggle();
@@ -103,7 +103,7 @@ public class GameController implements Initializable {
             displayQuestion();
             break;
           case 2:   // Correct and last question
-              System.out.println("Correct and last question");
+              winSetup(event);
             break;
         }
     } 
@@ -184,11 +184,29 @@ public class GameController implements Initializable {
         GameOverController gameOverController = loader.getController();
         gameOverController.setPrizeText("$100");
         gameOverController.setQuestionNumText(game.getQuestionIndex());
+        gameOverController.setup(false);
         
         // Change scene to GameOverView
         Scene gameOverScene = new Scene(layout);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(gameOverScene);
         window.show();    
+    }
+    
+    /**
+     * Set up win view
+     */
+    private void winSetup(ActionEvent event) throws IOException {
+        // Get reference to GameOverController
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/GameOverView.fxml"));    
+        Parent layout  = loader.load();
+        GameOverController gameOverController = loader.getController();
+        gameOverController.setup(true);
+        
+        // Change scene to GameOverView
+        Scene gameOverScene = new Scene(layout);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(gameOverScene);
+        window.show();
     }
 }

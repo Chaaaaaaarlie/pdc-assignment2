@@ -8,17 +8,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.GameOverController">
    <children>
-      <Text layoutX="529.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
+      <Text fx:id="gameOverText" layoutX="529.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over" visible="false">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <Text fx:id="prizeText" layoutX="348.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won: prize amount" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text fx:id="prizeText" layoutX="348.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You won: prize amount" textAlignment="CENTER" visible="false" wrappingWidth="600.0">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="questionNumText" layoutX="348.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questions correct: question num" textAlignment="CENTER" wrappingWidth="600.0">
+      <Text fx:id="questionNumText" layoutX="348.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Questions correct: question num" textAlignment="CENTER" visible="false" wrappingWidth="600.0">
          <font>
             <Font size="36.0" />
          </font>
@@ -28,5 +28,15 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Text fx:id="congratzText" layoutX="414.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations!" visible="false">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+      <Text fx:id="aMillText" layoutX="240.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="YOU WON $1 MILLION !!!" visible="false">
+         <font>
+            <Font size="72.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
