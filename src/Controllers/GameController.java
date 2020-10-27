@@ -6,12 +6,15 @@ import Commands.Game;
 import Commands.LifeLine;
 import Commands.Main;
 import Commands.PhoneAFriend;
+import Commands.Prize;
 import Commands.Question;
 import Commands.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +33,8 @@ import javafx.stage.Stage;
 
 public class GameController implements Initializable {
     private Game game;
+    private Prize prize;
+    private ObservableList<String> prizes = FXCollections.observableArrayList();
     
     @FXML 
     private ListView prizeList;
@@ -67,6 +72,20 @@ public class GameController implements Initializable {
                 confirmAnswerButton.setDisable(false);
             }
         });
+        
+        // Add listener to prizeList
+        prizeList.setItems(prizes);
+        
+        // Populate ListView
+        prize = new Prize();
+        
+        for (int i = 0; i < prize.getPrizePool().length; i++) {
+            prizes.add(0, prize.getPrizePool()[i]);
+        }
+        
+        // Select first prize and make prizeList non interactable
+        prizeList.getSelectionModel().select(prize.getCurrentPrizeInList());
+        prizeList.setMouseTransparent(true);
     }
     
     @FXML
@@ -95,9 +114,16 @@ public class GameController implements Initializable {
             gameOverSetup(event);
             break;
           case 1:   // Correct
+            // Disable RadioButtons and confirmButton on next question
             RadioButton selectedRadioButton = (RadioButton)group.getSelectedToggle();
             selectedRadioButton.setSelected(false);
             confirmAnswerButton.setDisable(true);
+            
+            // Move prize up in ListView
+            prize.increasePrize();
+            prize.decrementPrizeInList();
+            prizeList.getSelectionModel().select(prize.getCurrentPrizeInList());
+            
             displayQuestion();
             break;
           case 2:   // Correct and last question
@@ -198,7 +224,7 @@ public class GameController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/GameOverView.fxml"));    
         Parent layout  = loader.load();
         GameOverController gameOverController = loader.getController();
-        gameOverController.setPrizeText("$100");
+        gameOverController.setPrizeText(prize.getCurrentPrize());
         gameOverController.setQuestionNumText(game.getQuestionIndex());
         gameOverController.setup(false);
         

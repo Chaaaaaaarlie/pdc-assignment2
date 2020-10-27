@@ -3,6 +3,7 @@ package Commands;
 public class Prize {
     private String[] allPrizes;
     private int currentPrize;
+    private int currentPrizeInList;
     
     public Prize() {
         allPrizes = new String[]{
@@ -11,6 +12,7 @@ public class Prize {
             "$500,000", "$1 MILLION"
         };      
         currentPrize = 0;
+        currentPrizeInList = 15;
     }
     
     /**
@@ -28,24 +30,24 @@ public class Prize {
     }
     
     /**
+     * Decrement currentPrizeInList
+     */
+    public void decrementPrizeInList() {
+        currentPrizeInList--;
+    }
+    
+    /**
+     * Get currentPrizeInList variable
+     */
+    public int getCurrentPrizeInList() {
+        return currentPrizeInList;
+    }
+    
+    /**
      * Getter for allPrizes
      */
     public String[] getPrizePool() {
         return allPrizes;
     }
-    
-    /**
-     * Get next prize
-     */
-    public String getNextPrize(String current) {
-        String nextPrize = "";
-        for (int i = 0; i < allPrizes.length; i++) {
-            if (current.equals(allPrizes[i])) {
-                nextPrize = allPrizes[i+1];
-            }
-        }
-        
-        return nextPrize;
-    } 
 }
 
