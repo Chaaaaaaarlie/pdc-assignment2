@@ -11,6 +11,8 @@ import Commands.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -37,7 +41,11 @@ public class GameController implements Initializable {
     @FXML
     private Button askTheAudience;
     @FXML
+    private Button confirmAnswerButton;
+    @FXML
     private Text question;
+    @FXML
+    private ToggleGroup group;
     @FXML
     private RadioButton optionA;
     @FXML
@@ -52,7 +60,14 @@ public class GameController implements Initializable {
         // Set up game by retrieving questions and users then start the game
         Main menu = new Main();
         game = new Game(menu.getQuestions(), new User("Test Name", "Test Score"));
-        displayQuestion();   
+        displayQuestion(); 
+        
+        // Add listener to ToggleGroup
+        group.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) -> {
+            if (group.getSelectedToggle() != null) {
+                confirmAnswerButton.setDisable(false);
+            }
+        });
     }
     
     @FXML
@@ -78,11 +93,14 @@ public class GameController implements Initializable {
     
     @FXML
     public void confirmAnswerButton(ActionEvent event) throws IOException {
-        switch (game.questionAnswered("Test Answer")) {
+        switch (game.questionAnswered(((RadioButton)group.getSelectedToggle()).getText())) {
           case 0:   // Incorrect
               System.out.println("Wrong");
             break;
           case 1:   // Correct
+            RadioButton selectedRadioButton = (RadioButton)group.getSelectedToggle();
+            selectedRadioButton.setSelected(false);
+            confirmAnswerButton.setDisable(true);
             displayQuestion();
             break;
           case 2:   // Correct and last question
