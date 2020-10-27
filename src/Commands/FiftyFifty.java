@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class FiftyFifty extends LifeLineAbstract {
     private String[] options;
-    private int firstOption;
-    private int secondOption;
+    private String randLetter;
+    private String answerLetter;
     
     public FiftyFifty() {
         options = new String[]{"A", "B", "C", "D"};      
@@ -13,13 +13,12 @@ public class FiftyFifty extends LifeLineAbstract {
 
     @Override
     public void use() {
-        String[] options = {"A", "B", "C", "D"};
         Random generator = new Random();
-        firstOption = generator.nextInt(options.length); 
-        
+        int randLetterInt;
         do {
-            secondOption = generator.nextInt(options.length);
-        } while (firstOption == secondOption);
+            randLetterInt = generator.nextInt(options.length);
+            randLetter = options[randLetterInt];
+        } while (randLetter.equals(answerLetter));
     }
     
     /**
@@ -27,11 +26,18 @@ public class FiftyFifty extends LifeLineAbstract {
      */
     @Override
     public String getAnswer() {
-        return options[firstOption] + "-" + options[secondOption];
+        return randLetter;
     }
 
     @Override
     public String toString() {
         return "Fifty Fifty";
+    }
+    
+    /**
+     * Setter for answerLetter
+     */
+    public void setAnswer(String letter) {
+        answerLetter = letter;
     }
 }

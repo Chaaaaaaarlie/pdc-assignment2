@@ -72,9 +72,7 @@ public class GameController implements Initializable {
     @FXML
     public void fiftyFiftyButtonAction(ActionEvent event) throws IOException {
         fiftyFifty.setDisable(true);
-        LifeLine fiftyFifty = new FiftyFifty();
-        fiftyFifty.use();
-        enableFiftyFifty(fiftyFifty.getAnswer());    
+        enableFiftyFifty(new FiftyFifty());    
     }
     
     @FXML
@@ -153,22 +151,40 @@ public class GameController implements Initializable {
     /**
      * Active Fifty Fifty lifeline by disabling two random options
      */
-    private void enableFiftyFifty(String s) {
-        String[] optionsToRemove = s.split("-");
+    private void enableFiftyFifty(FiftyFifty fiftyFifty) {
+        String answerLetter = "";
+        String answer = game.getQuestions().get(game.getQuestionIndex()).correctAnswer();
         
-        if (optionsToRemove[0].equals("A") || optionsToRemove[1].equals("A")) {
+        // Find letter for answer
+        if (optionA.getText().equals(answer)) {
+            answerLetter = "A";
+        } else if (optionB.getText().equals(answer)) {
+            answerLetter = "B";
+        } else if (optionC.getText().equals(answer)) {
+            answerLetter = "C";
+        } else if (optionD.getText().equals(answer)) {
+            answerLetter = "D";
+        }
+
+        // Get rand option to keep
+        fiftyFifty.setAnswer(answerLetter);
+        fiftyFifty.use();
+        String randOption = fiftyFifty.getAnswer();
+        
+        // Remove rest of options
+        if (!(answerLetter.equals("A") || randOption.equals("A"))) {
             // Disable A
             optionA.setVisible(false);
         }      
-        if (optionsToRemove[0].equals("B") || optionsToRemove[1].equals("B")) {
+        if (!(answerLetter.equals("B") || randOption.equals("B"))) {
             // Disable B
             optionB.setVisible(false);
         }       
-        if (optionsToRemove[0].equals("C") || optionsToRemove[1].equals("C")) {
+        if (!(answerLetter.equals("C") || randOption.equals("C"))) {
             // Disbale C
             optionC.setVisible(false);
         }
-        if (optionsToRemove[0].equals("D") || optionsToRemove[1].equals("D")) {
+        if (!(answerLetter.equals("D") || randOption.equals("D"))) {
             // Disable D
             optionD.setVisible(false);
         }

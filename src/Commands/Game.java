@@ -40,12 +40,10 @@ public class Game {
                 result = 2;
             } else {
                 questionIndex++;
-                System.out.println("QuestionIndex: " + questionIndex);
             }           
         } else {
             result = 0;
         }
-        System.out.println("Result: " + result);
         return result;
     }
     
